@@ -18,7 +18,7 @@ function PackingList() {
         body: JSON.stringify({ city: city }),
       });
       const data = await response.json();
-      setResult(data.list); // Saving the AI's answer
+      setResult(data.packinglist); // Saving the AI's answer
     } catch (error) {
       setResult("Error connecting to the brain (Backend).");
     } finally {
