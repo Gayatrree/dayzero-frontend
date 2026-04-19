@@ -4,6 +4,7 @@ import Services from "./pages/Services";
 import Booking from "./pages/Booking";
 import PackingList from "./pages/PackingList";
 import TransportGuidance from "./pages/TransportGuidance"; // Import the new page
+import CookingPage from "./pages/CookingPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/booking" element={<Booking />} />
         <Route path="/packing" element={<PackingList />} />
         <Route path="/transport" element={<TransportGuidance />} />
+        <Route path="/cooking" element={<CookingPage />} />
       </Routes>
     </Router>
   );
