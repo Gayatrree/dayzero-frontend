@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Booking from "./pages/Booking";
 import PackingList from "./pages/PackingList";
+import TransportGuidance from "./pages/TransportGuidance"; // Import the new page
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/packing" element={<PackingList />} />
+        <Route path="/transport" element={<TransportGuidance />} />
       </Routes>
     </Router>
   );
