@@ -39,6 +39,7 @@ function Home() {
  const serviceList = [
   { title: "Airport Pickup", desc: "Safe pickup from airport", path: "/booking" },
   { title: "City Orientation", desc: "Explore your new city", path: "/orientation" },
+  { title: "Local Transport Guidance", desc: "Step-by-step directions from the airport to your dorm",path: "/transport" },
   { title: "Packing Checklist", desc: "Never forget essentials", path: "/packing" }, // New Path!
 ];
 
