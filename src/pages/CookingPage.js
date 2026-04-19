@@ -5,14 +5,38 @@ const recipes = [
   {
     id: 1,
     title: "Dal Tadka & Rice",
-    ingredients: ["1 cup Yellow Moong Dal", "2 cups Water", "1 tsp Turmeric", "1 tbsp Ghee", "1 tsp Cumin seeds"],
-    steps: "1. Pressure cook dal with water and turmeric. 2. In a small pan, heat ghee and add cumin. 3. Pour over dal and serve with boiled rice."
+    ingredients: ["1 cup Moong Dal", "2 cups Water", "Turmeric", "Ghee/Oil", "Cumin seeds"],
+    steps: "Boil dal with turmeric and salt. Heat oil/ghee, add cumin seeds until they sizzle, and pour over the dal."
   },
   {
     id: 2,
-    title: "One-Pot Pasta",
-    ingredients: ["100g Pasta", "Tomato Sauce", "Garlic", "Salt", "Olive Oil"],
-    steps: "1. Boil pasta. 2. Sauté garlic in oil. 3. Mix sauce and pasta together."
+    title: "Aloo Jeera (Cumin Potatoes)",
+    ingredients: ["3 Potatoes (cubed)", "1 tsp Cumin seeds", "Turmeric", "Salt", "Oil"],
+    steps: "Sauté cumin in oil. Add cubed potatoes and turmeric. Cover and cook on low heat until tender and crispy."
+  },
+  {
+    id: 3,
+    title: "Egg Bhurji (Indian Scramble)",
+    ingredients: ["3 Eggs", "1 Onion (chopped)", "1 Tomato", "Green chili", "Turmeric"],
+    steps: "Sauté onions and tomatoes. Add spices, then crack eggs into the pan. Stir constantly until fluffy and cooked."
+  },
+  {
+    id: 4,
+    title: "One-Pot Khichdi",
+    ingredients: ["1/2 cup Rice", "1/2 cup Dal", "Ginger", "Ghee", "Salt"],
+    steps: "Pressure cook rice, dal, ginger, and salt with 3 cups of water for 3 whistles. Top with ghee."
+  },
+  {
+    id: 5,
+    title: "Masala Maggi (Upgrade)",
+    ingredients: ["1 pack Maggi", "Onion", "Frozen Peas/Carrots", "Butter"],
+    steps: "Sauté veggies in butter. Add water and Maggi masala. Once boiling, add noodles and cook until dry."
+  },
+  {
+    id: 6,
+    title: "Curd Rice (The Comfort Food)",
+    ingredients: ["1 cup Cooked Rice", "1/2 cup Yogurt", "Salt", "Mustard seeds (optional)"],
+    steps: "Mix soft rice with yogurt and salt. If possible, temper mustard seeds in oil and add on top."
   }
 ];
 
