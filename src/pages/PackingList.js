@@ -12,7 +12,7 @@ function PackingList() {
     
     try {
       // Talking to your Node.js Backend
-      const response = await fetch("https://dayzero-backend-i0w0.onrender.com", {
+      const response = await fetch("https://dayzero-backend-i0w0.onrender.com/api/packing-list", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ city: city }),
