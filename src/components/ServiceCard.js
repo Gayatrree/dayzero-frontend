@@ -1,14 +1,21 @@
-import { FaPlaneArrival, FaCity, FaSuitcase, FaQuestionCircle } from "react-icons/fa";
+import { 
+  FaPlaneArrival, 
+  FaSuitcase, 
+  FaQuestionCircle, 
+  FaBus,      // New Icon for Transport
+  FaUtensils  // New Icon for Cooking
+} from "react-icons/fa";
 
-// Map titles to icons - very easy to extend!
+// Map titles to icons
 const iconMap = {
   "Airport Pickup": <FaPlaneArrival size={30} color="#2563eb" />,
-  "City Orientation": <FaCity size={30} color="#2563eb" />,
+  "Local Transport Guidance": <FaBus size={30} color="#2563eb" />, // Matches the title in Home.js
+  "Survival Cooking 101": <FaUtensils size={30} color="#2563eb" />, // Matches the title in Home.js
   "Packing Checklist": <FaSuitcase size={30} color="#2563eb" />,
 };
 
 function ServiceCard({ title, description }) {
-  // Fallback to a question mark if the title doesn't match
+  // The icon lookup happens here based on the title prop
   const icon = iconMap[title] || <FaQuestionCircle size={30} color="#94a3b8" />;
 
   return (
@@ -21,7 +28,7 @@ function ServiceCard({ title, description }) {
         background: "white",
         boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
         textAlign: "center",
-        transition: "transform 0.2s", // Subtle hover effect
+        transition: "transform 0.2s",
       }}
       onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-5px)")}
       onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0)")}
