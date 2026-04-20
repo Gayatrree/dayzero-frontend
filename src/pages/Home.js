@@ -168,7 +168,11 @@ function Home() {
         <div style={styles.categoryPill}>👋 MEET THE FOUNDER</div>
         <h2 style={styles.sectionTitle}>Built by a student, for students.</h2>
         
-        <div style={{ maxWidth: "750px", marginTop: "40px", alignItems: "center" }}>
+        <div style={{ maxWidth: "750px", marginTop: "40px", display: "flex", 
+          flexDirection: "column", 
+          alignItems: "center",  // Centers items horizontally inside the column
+          justifyContent: "center",
+          margin: "0 auto" }}>
           <div style={styles.profileImage}>
              {/* Replace the span below with <img src={yourPhoto} style={{width: '100%', borderRadius: '50%'}} /> later */}
             <img 
