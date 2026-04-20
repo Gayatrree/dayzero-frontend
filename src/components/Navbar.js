@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logoIcon from '../assets/dayzerologo.jpg';
 
 function Navbar() {
   return (
@@ -10,16 +9,17 @@ function Navbar() {
         padding: "15px 40px",
         background: "white",
         borderBottom: "1px solid #eee",
-        alignItems: "center", // Keeps everything centered vertically
-        position: "sticky",    // Keeps the nav at the top when scrolling
+        alignItems: "center",
+        position: "sticky",
         top: 0,
         zIndex: 1000
       }}
     >
       {/* --- LOGO SECTION --- */}
       <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
+        {/* Blue Square 'D' */}
         <div style={{
-          backgroundColor: "#2563eb", // Professional Blue
+          backgroundColor: "#2563eb",
           color: "white",
           width: "32px",
           height: "32px",
@@ -28,39 +28,34 @@ function Navbar() {
           justifyContent: "center",
           alignItems: "center",
           fontWeight: "bold",
-          marginRight: "10px",
+          marginRight: "12px",
           fontSize: "18px"
         }}>
           D
         </div>
-        <h2 style={{ 
-  margin: 0, 
-  fontSize: "22px", 
-  color: "#1e293b", 
-  fontWeight: "800",
-  letterSpacing: "-0.5px",
-  display: "flex",       // Added to align text and image
-  alignItems: "center"   // Keeps the globe level with the letters
-}}>
-  Day
-  <span style={{ color: "#2563eb", display: "flex", alignItems: "center" }}>
-    Zer
-    <img 
-  src={logoIcon} 
-  alt="o" 
-  style={{ 
-    height: "26px",            // Natural height to match text
-    width: "26px",             // Force a square so it doesn't stretch
-    objectFit: "cover",        // This crops the white edges out
-    objectPosition: "center",  // Keeps the globe in the middle
-    marginLeft: "2px",
-    display: "inline-block",
-    verticalAlign: "middle",
-    borderRadius: "50%"        // Optional: keeps the blue from leaking at the corners
-  }} 
-/>
-  </span>
-</h2>
+
+        {/* Text Container for Title and Tagline */}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <h2 style={{ 
+            margin: 0, 
+            fontSize: "22px", 
+            color: "#1e293b", 
+            fontWeight: "800",
+            letterSpacing: "-0.5px",
+            lineHeight: "1" 
+          }}>
+            Day<span style={{ color: "#2563eb" }}>Zero</span>
+          </h2>
+          <span style={{ 
+            fontSize: "10px", 
+            fontWeight: "700", 
+            color: "#64748b", 
+            letterSpacing: "1.2px",
+            marginTop: "2px"
+          }}>
+            RELOCATION, SIMPLIFIED
+          </span>
+        </div>
       </Link>
 
       {/* --- NAVIGATION LINKS --- */}
@@ -81,7 +76,6 @@ function Navbar() {
   );
 }
 
-// Simple reusable style for links
 const linkStyle = {
   textDecoration: "none",
   color: "#64748b",

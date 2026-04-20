@@ -1,10 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaLinkedin, FaEnvelope } from "react-icons/fa"; // Added icons for contact
+import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 import heroImage from "../assets/hero.jpg";
-import yourphoto from "../assets/Photograph.jpg";
 
 const styles = {
   hero: {
@@ -16,31 +15,17 @@ const styles = {
     textAlign: "center",
     color: "#111",
     backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${heroImage})`,
-    backgroundSize: "cover",
+    backgroundSize: "cover", // Changed back to cover for full hero effect
     backgroundPosition: "center",
     padding: "0 20px"
   },
-  sectionHeaderContainer: {
+  headerWrapper: {
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
+    gap: "12px",
     marginBottom: "40px",
     marginTop: "40px",
-  },
-  categoryPill: {
-    backgroundColor: "#fef3c7", 
-    color: "#92400e",           
-    padding: "6px 20px",
-    borderRadius: "50px",
-    fontSize: "13px",
-    fontWeight: "700",
-    textTransform: "uppercase",
-    letterSpacing: "0.8px",
-    marginBottom: "12px",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    boxShadow: "0 2px 5px rgba(0,0,0,0.05)"
   },
   sectionTitle: {
     fontSize: "36px",
@@ -48,6 +33,14 @@ const styles = {
     margin: "0",
     fontWeight: "800",
     letterSpacing: "-0.5px"
+  },
+  aboutHeader: {
+    fontSize: "28px", // Slightly smaller than sectionTitle
+    color: "#1e293b",
+    fontWeight: "700",
+    marginBottom: "10px",
+    letterSpacing: "1px",
+    textTransform: "uppercase"
   },
   grid: {
     display: "flex",
@@ -70,26 +63,13 @@ const styles = {
     boxShadow: "0 4px 10px rgba(37, 99, 235, 0.2)"
   },
   aboutSection: {
-    padding: "100px 20px",
+    padding: "80px 20px",
     backgroundColor: "#ffffff",
     textAlign: "center",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     borderTop: "1px solid #f1f5f9"
-  },
-  profileImage: {
-    width: "140px",
-    height: "140px",
-    borderRadius: "50%",
-    objectFit: "cover",
-    marginBottom: "25px",
-    border: "5px solid #f8fafc",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#e2e8f0"
   },
   contactButton: {
     display: "flex",
@@ -120,10 +100,8 @@ function Home() {
 
   const renderCategory = (category, label, emoji) => (
     <section style={{ padding: "0 20px" }}>
-      <div style={styles.sectionHeaderContainer}>
-        <div style={styles.categoryPill}>
-          <span>{emoji}</span> {category.toUpperCase()} TIMELINE
-        </div>
+      <div style={styles.headerWrapper}>
+        <span style={{ fontSize: "32px" }}>{emoji}</span>
         <h2 style={styles.sectionTitle}>{label}</h2>
       </div>
       <div style={styles.grid}>
@@ -163,39 +141,23 @@ function Home() {
         {renderCategory("extended", "Extended Support", "🤝")}
       </main>
 
-      {/* ABOUT THE FOUNDER SECTION */}
+      {/* UPDATED ABOUT SECTION */}
       <section style={styles.aboutSection}>
-        <div style={styles.categoryPill}>👋 MEET THE FOUNDER</div>
-        <h2 style={styles.sectionTitle}>Built by a student, for students.</h2>
+        <h2 style={styles.aboutHeader}>About</h2>
+        <h3 style={{ fontSize: "22px", color: "#64748b", marginBottom: "30px", fontWeight: "500" }}>
+          Built by a student, for students.
+        </h3>
         
-        <div style={{ maxWidth: "750px", marginTop: "40px", display: "flex", 
-          flexDirection: "column", 
-          alignItems: "center",  // Centers items horizontally inside the column
-          justifyContent: "center",
-          margin: "0 auto" }}>
-          <div style={styles.profileImage}>
-             {/* Replace the span below with <img src={yourPhoto} style={{width: '100%', borderRadius: '50%'}} /> later */}
-            <img 
-  src={yourphoto} 
-  alt="Gayatrree Paatil" 
-  style={{
-    width: '100%', 
-    height: '100%',     // Ensures it fills the circle
-    borderRadius: '50%', 
-    objectFit: 'cover',   // CRITICAL: Crops the image to a circle without stretching your face
-    display: 'block'
-  }} 
-/>
-          </div>
-          
-          <h3 style={{ fontSize: "24px", color: "#1e293b", marginBottom: "15px" }}>Gayatrree Paatil</h3>
-          
-          <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.7", marginBottom: "30px" }}>
-            {/* Write your amazing story here! */}
+        <div style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
+          <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
             "I created DayZero to solve the real-world challenges I faced as an international student. 
             Our mission is to ensure every student feels supported, prepared, and welcomed from the 
             moment they step off the plane."
           </p>
+          
+          <h4 style={{ fontSize: "20px", color: "#1e293b", fontWeight: "700", marginBottom: "40px" }}>
+            — Gayatrree Paatil
+          </h4>
           
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px" }}>
             <a 
