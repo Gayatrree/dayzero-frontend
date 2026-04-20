@@ -6,7 +6,7 @@ import heroImage from "../assets/hero.jpg";
 
 const styles = {
   hero: {
-    height: "70vh",
+    height: "75vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -18,33 +18,54 @@ const styles = {
     backgroundPosition: "center",
     padding: "0 20px"
   },
-  sectionTitle: {
-    fontSize: "28px",
-    color: "#1e293b",
-    marginBottom: "30px",
+  sectionHeaderContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginBottom: "40px",
     marginTop: "40px",
+  },
+  categoryPill: {
+    backgroundColor: "#fef3c7", // Soft Beige/Amber
+    color: "#92400e",           // Earthy Brown text
+    padding: "6px 20px",
+    borderRadius: "50px",
+    fontSize: "13px",
     fontWeight: "700",
-    borderBottom: "3px solid #2563eb",
-    display: "inline-block",
-    paddingBottom: "5px"
+    textTransform: "uppercase",
+    letterSpacing: "0.8px",
+    marginBottom: "12px",
+    display: "flex",
+    alignItems: "center",
+    gap: "8px",
+    boxShadow: "0 2px 5px rgba(0,0,0,0.05)"
+  },
+  sectionTitle: {
+    fontSize: "36px",
+    color: "#1e293b",
+    margin: "0",
+    fontWeight: "800",
+    letterSpacing: "-0.5px"
   },
   grid: {
     display: "flex",
-    gap: "20px",
+    gap: "25px",
     justifyContent: "center",
     flexWrap: "wrap",
-    marginBottom: "60px"
+    maxWidth: "1200px",
+    margin: "0 auto 60px auto"
   },
   btn: {
-    padding: "16px 32px",
+    padding: "16px 36px",
     fontSize: "18px",
     fontWeight: "600",
     backgroundColor: "#2563eb",
     color: "white",
-    borderRadius: "10px",
+    borderRadius: "12px",
     border: "none",
     cursor: "pointer",
-    transition: "0.3s"
+    transition: "0.3s",
+    boxShadow: "0 4px 10px rgba(37, 99, 235, 0.2)"
   }
 };
 
@@ -66,15 +87,24 @@ function Home() {
     { title: "City Registration", desc: "Book your appointment for the Bürgerbüro/City hall", path: "/registration", category: "extended" },
   ];
 
-  // Helper function to render a specific category
-  const renderCategory = (category, title) => (
-    <section style={{ padding: "20px" }}>
-      <h2 style={styles.sectionTitle}>{title}</h2>
+  // Updated Helper function with centered Pill and Title
+  const renderCategory = (category, label, emoji) => (
+    <section style={{ padding: "0 20px" }}>
+      <div style={styles.sectionHeaderContainer}>
+        <div style={styles.categoryPill}>
+          <span>{emoji}</span> {category.toUpperCase()} TIMELINE
+        </div>
+        <h2 style={styles.sectionTitle}>{label}</h2>
+      </div>
       <div style={styles.grid}>
         {serviceList
           .filter((s) => s.category === category)
           .map((service, index) => (
-            <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
+            <div 
+              key={index} 
+              onClick={() => navigate(service.path)} 
+              style={{ cursor: "pointer" }}
+            >
               <ServiceCard title={service.title} description={service.desc} />
             </div>
           ))}
@@ -83,26 +113,37 @@ function Home() {
   );
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#ffffff" }}>
       <Navbar />
 
       <section style={styles.hero}>
-        <h1 style={{ fontSize: "clamp(32px, 5vw, 48px)", marginBottom: "20px", color: "#111", maxWidth: "800px" }}>
-          Land in a new country with <br /> <strong>"zero confusion" </strong>
+        <h1 style={{ fontSize: "clamp(32px, 5vw, 52px)", marginBottom: "20px", color: "#111", maxWidth: "900px", fontWeight: "800" }}>
+          Land in a new country with <br /> 
+          <span style={{ color: "#2563eb" }}>"zero confusion"</span>
         </h1>
-        <p style={{ fontSize: "20px", marginBottom: "30px", color: "#374151" }}>
-          We help students settle from DayZero.
+        <p style={{ fontSize: "21px", marginBottom: "35px", color: "#4b5563", maxWidth: "600px" }}>
+          Moving abroad is hard. We make DayZero easy with expert guidance and essential arrival kits.
         </p>
-        <button onClick={() => navigate("/booking")} style={styles.btn}>
+        <button 
+          onClick={() => navigate("/booking")} 
+          style={styles.btn}
+          onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-2px)"}
+          onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
+        >
           Explore Services
         </button>
       </section>
 
-      <main style={{ backgroundColor: "#f9fafb", padding: "40px 0" }}>
-        {renderCategory("before", "🛫 Before You Fly")}
-        {renderCategory("after", "🏠 After Arrival")}
-        {renderCategory("extended", "🤝 Extended Support")}
+      <main style={{ backgroundColor: "#f9fafb", padding: "60px 0" }}>
+        {renderCategory("before", "Before You Fly", "🛫")}
+        {renderCategory("after", "After Arrival", "🏠")}
+        {renderCategory("extended", "Extended Support", "🤝")}
       </main>
+      
+      {/* Footer Placeholder for extra polish */}
+      <footer style={{ padding: "40px", textAlign: "center", color: "#94a3b8", fontSize: "14px" }}>
+        © 2026 DayZero Student Services. Built for international success.
+      </footer>
     </div>
   );
 }
