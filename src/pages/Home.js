@@ -1,23 +1,39 @@
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 import heroImage from "../assets/hero.jpg";
 
-// Moving styles to a constant or CSS file makes the component cleaner
 const styles = {
   hero: {
-    height: "80vh",
+    height: "70vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
     textAlign: "center",
     color: "#111",
-    backgroundImage: `linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(${heroImage})`,
-    backgroundSize: "contain", // 'cover' usually looks better for hero sections than 'contain'
+    backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${heroImage})`,
+    backgroundSize: "cover",
     backgroundPosition: "center",
+    padding: "0 20px"
+  },
+  sectionTitle: {
+    fontSize: "28px",
+    color: "#1e293b",
+    marginBottom: "30px",
+    marginTop: "40px",
+    fontWeight: "700",
+    borderBottom: "3px solid #2563eb",
+    display: "inline-block",
+    paddingBottom: "5px"
+  },
+  grid: {
+    display: "flex",
+    gap: "20px",
+    justifyContent: "center",
+    flexWrap: "wrap",
+    marginBottom: "60px"
   },
   btn: {
     padding: "16px 32px",
@@ -35,13 +51,36 @@ const styles = {
 function Home() {
   const navigate = useNavigate();
 
-  // In a smart stack, this data would eventually come from your AI backend
- const serviceList = [
-  { title: "Airport Pickup", desc: "Safe pickup from airport", path: "/booking" },
-  { title: "Survival Cooking 101", desc: "Master 7 basic meals before you fly abroad", path: "/cooking" },
-  { title: "Local Transport Guidance", desc: "Step-by-step directions from the airport to your dorm",path: "/transport" },
-  { title: "Packing Checklist", desc: "Never forget essentials", path: "/packing" }, // New Path!
-];
+  const serviceList = [
+    // Category: Before you fly
+    { title: "Survival Cooking 101", desc: "Master 7 basic meals before you fly abroad", path: "/cooking", category: "before" },
+    { title: "Local Transport Guidance", desc: "Step-by-step directions from airport to dorm", path: "/transport", category: "before" },
+    { title: "Packing Checklist", desc: "Never forget essentials with our custom list", path: "/packing", category: "before" },
+    
+    // Category: After arrival
+    { title: "Airport Pickup", desc: "Safe pickup from airport to your residence", path: "/booking", category: "after" },
+    { title: "Starter Kit Delivery", desc: "Pillow, blanket, and essentials at your door", path: "/starter-kit", category: "after" },
+    
+    // Category: Extended support
+    { title: "Set up Bank Account", desc: "Guidance for Blocked Account and local cards", path: "/bank", category: "extended" },
+    { title: "City Registration", desc: "Book your appointment for the Bürgerbüro/City hall", path: "/registration", category: "extended" },
+  ];
+
+  // Helper function to render a specific category
+  const renderCategory = (category, title) => (
+    <section style={{ padding: "20px" }}>
+      <h2 style={styles.sectionTitle}>{title}</h2>
+      <div style={styles.grid}>
+        {serviceList
+          .filter((s) => s.category === category)
+          .map((service, index) => (
+            <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
+              <ServiceCard title={service.title} description={service.desc} />
+            </div>
+          ))}
+      </div>
+    </section>
+  );
 
   return (
     <div>
@@ -55,23 +94,15 @@ function Home() {
           We help students settle from DayZero.
         </p>
         <button onClick={() => navigate("/booking")} style={styles.btn}>
-          Book Your Arrival
+          Explore Services
         </button>
       </section>
 
-      <section style={{ padding: "80px 20px", backgroundColor: "#f9fafb", textAlign: "center" }}>
-        <h2 style={{ marginBottom: "40px", fontSize: "32px" }}>Our Smart Services</h2>
-        <div style={{ display: "flex", gap: "20px", justifyContent: "center", flexWrap: "wrap" }}>
-          {serviceList.map((service, index) => (
-  <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
-    <ServiceCard 
-      title={service.title} 
-      description={service.desc} 
-    />
-  </div>
-))}
-        </div>
-      </section>
+      <main style={{ backgroundColor: "#f9fafb", padding: "40px 0" }}>
+        {renderCategory("before", "🛫 Before You Fly")}
+        {renderCategory("after", "🏠 After Arrival")}
+        {renderCategory("extended", "🤝 Extended Support")}
+      </main>
     </div>
   );
 }

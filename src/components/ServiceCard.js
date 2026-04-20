@@ -12,6 +12,9 @@ const iconMap = {
   "Local Transport Guidance": <FaBus size={30} color="#2563eb" />, // Matches the title in Home.js
   "Survival Cooking 101": <FaUtensils size={30} color="#2563eb" />, // Matches the title in Home.js
   "Packing Checklist": <FaSuitcase size={30} color="#2563eb" />,
+  "Starter Kit Delivery": <FaBox size={30} color="#2563eb"/>,
+  "Set up Bank Account": <FaUniversity size={30} color="#2563eb"/>,
+  "City Registration": <FaFileSignature size={30} color="#2563eb" />,
 };
 
 function ServiceCard({ title, description }) {
