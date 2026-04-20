@@ -4,6 +4,7 @@ import { FaLinkedin, FaEnvelope } from "react-icons/fa"; // Added icons for cont
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 import heroImage from "../assets/hero.jpg";
+import yourphoto from "../assets/Photograph.jpg";
 
 const styles = {
   hero: {
@@ -170,7 +171,17 @@ function Home() {
         <div style={{ maxWidth: "750px", marginTop: "40px" }}>
           <div style={styles.profileImage}>
              {/* Replace the span below with <img src={yourPhoto} style={{width: '100%', borderRadius: '50%'}} /> later */}
-             <span style={{fontSize: "60px"}}>👤</span> 
+            <img 
+  src={yourPhoto} 
+  alt="Gayatrree Paatil" 
+  style={{
+    width: '100%', 
+    height: '100%',     // Ensures it fills the circle
+    borderRadius: '50%', 
+    objectFit: 'cover',   // CRITICAL: Crops the image to a circle without stretching your face
+    display: 'block'
+  }} 
+/>
           </div>
           
           <h3 style={{ fontSize: "24px", color: "#1e293b", marginBottom: "15px" }}>Gayatrree Paatil</h3>
