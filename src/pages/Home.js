@@ -1,19 +1,95 @@
-import React, { useRef } from "react"; // Added useRef
+import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 import heroImage from "../assets/hero.jpg";
 
-// ... (styles stay exactly the same as your provided code)
-
 function Home() {
   const navigate = useNavigate();
-  
-  // 1. Create a reference for the services section
   const servicesRef = useRef(null);
 
-  // 2. Function to handle the smooth scroll
+  // MOVE THE STYLES OBJECT INSIDE THE FUNCTION HERE
+  const styles = {
+    hero: {
+      height: "75vh",
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      textAlign: "center",
+      color: "#111",
+      backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${heroImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      padding: "0 20px"
+    },
+    headerWrapper: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "12px",
+      marginBottom: "40px",
+      marginTop: "40px",
+    },
+    sectionTitle: {
+      fontSize: "36px",
+      color: "#1e293b",
+      margin: "0",
+      fontWeight: "800",
+      letterSpacing: "-0.5px"
+    },
+    aboutHeader: {
+      fontSize: "28px",
+      color: "#1e293b",
+      fontWeight: "700",
+      marginBottom: "10px",
+      letterSpacing: "1px",
+      textTransform: "uppercase"
+    },
+    grid: {
+      display: "flex",
+      gap: "25px",
+      justifyContent: "center",
+      flexWrap: "wrap",
+      maxWidth: "1200px",
+      margin: "0 auto 60px auto"
+    },
+    btn: {
+      padding: "16px 36px",
+      fontSize: "18px",
+      fontWeight: "600",
+      backgroundColor: "#2563eb",
+      color: "white",
+      borderRadius: "12px",
+      border: "none",
+      cursor: "pointer",
+      transition: "0.3s",
+      boxShadow: "0 4px 10px rgba(37, 99, 235, 0.2)"
+    },
+    aboutSection: {
+      padding: "80px 20px",
+      backgroundColor: "#ffffff",
+      textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      borderTop: "1px solid #f1f5f9"
+    },
+    contactButton: {
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
+      padding: "12px 24px",
+      borderRadius: "8px",
+      fontSize: "16px",
+      fontWeight: "600",
+      textDecoration: "none",
+      transition: "0.3s",
+      margin: "10px"
+    }
+  };
+
   const scrollToServices = () => {
     servicesRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -28,6 +104,7 @@ function Home() {
     { title: "City Registration", desc: "Book your appointment for the Bürgerbüro/City hall", path: "/registration", category: "extended" },
   ];
 
+  // Moving renderCategory inside Home so it can see 'styles'
   const renderCategory = (category, label, emoji) => (
     <section style={{ padding: "0 20px" }}>
       <div style={styles.headerWrapper}>
@@ -59,63 +136,44 @@ function Home() {
         <p style={{ fontSize: "21px", marginBottom: "35px", color: "#4b5563", maxWidth: "600px" }}>
           Moving abroad is hard. At DayZero we make it easy with proper guidance and essential arrival kits.
         </p>
-        
-        {/* 3. Updated button to call scrollToServices */}
         <button onClick={scrollToServices} style={styles.btn}>
           Explore Services
         </button>
       </section>
 
-      {/* SERVICES SECTION - 4. Attached the ref here */}
+      {/* SERVICES SECTION */}
       <main ref={servicesRef} style={{ backgroundColor: "#f9fafb", padding: "60px 0" }}>
         {renderCategory("before", "Before You Fly", "🛫")}
         {renderCategory("after", "After Arrival", "🏠")}
         {renderCategory("extended", "Extended Support", "🤝")}
       </main>
 
-      {/* UPDATED ABOUT SECTION */}
+      {/* ABOUT SECTION */}
       <section style={styles.aboutSection}>
         <h2 style={styles.aboutHeader}>About</h2>
         <h3 style={{ fontSize: "22px", color: "#64748b", marginBottom: "30px", fontWeight: "500" }}>
           Built by a student, for students.
         </h3>
-        
         <div style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
           <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
-            "Day Zero was built from lived experience.<br />
-            Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the early days of 
-            relocation — what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.<br />
-            Day Zero exists to bridge that very gap.<br />
-            Our mission is to ensure that every student arrives not just prepared, but confident, supported, and at ease from 
-            day one — transforming what is often an overwhelming transition into a seamless beginning, so that every student feels supported, 
-            prepared, and welcomed from the moment they step off the plane." 
+            "Day Zero was built from lived experience..."
           </p>
-          
           <h4 style={{ fontSize: "20px", color: "#1e293b", fontWeight: "700", marginBottom: "40px" }}>
             ~ Gayatrree Paatil
           </h4>
-          
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px" }}>
-            <a 
-              href="mailto:gayatrreepaatil@gmail.com" 
-              style={{ ...styles.contactButton, backgroundColor: "#f1f5f9", color: "#1e293b" }}
-            >
+            <a href="mailto:gayatrreepaatil@gmail.com" style={{ ...styles.contactButton, backgroundColor: "#f1f5f9", color: "#1e293b" }}>
               <FaEnvelope color="#2563eb" /> Email Me
             </a>
-            <a 
-              href="https://www.linkedin.com/in/gayatrreepaatil" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              style={{ ...styles.contactButton, backgroundColor: "#0a66c2", color: "white" }}
-            >
+            <a href="https://www.linkedin.com/in/gayatrreepaatil" target="_blank" rel="noopener noreferrer" style={{ ...styles.contactButton, backgroundColor: "#0a66c2", color: "white" }}>
               <FaLinkedin /> Connect on LinkedIn
             </a>
           </div>
         </div>
       </section>
-      
+
       <footer style={{ padding: "40px", textAlign: "center", color: "#94a3b8", fontSize: "14px", backgroundColor: "#f8fafc" }}>
-        © 2026 DayZero Student Services. Built for international success.
+        © 2026 DayZero Student Services.
       </footer>
     </div>
   );
