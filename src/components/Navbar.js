@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logoIcon from '../assets/dayzero logo.jpg';
+import logoIcon from '../assets/dayzerologo.jpg';
 
 function Navbar() {
   return (
