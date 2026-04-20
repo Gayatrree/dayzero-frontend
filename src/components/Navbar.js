@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logoIcon from '../assets/dayzero logo.jpg';
 
 function Navbar() {
   return (
@@ -33,14 +34,29 @@ function Navbar() {
           D
         </div>
         <h2 style={{ 
-          margin: 0, 
-          fontSize: "22px", 
-          color: "#1e293b", 
-          fontWeight: "800",
-          letterSpacing: "-0.5px"
-        }}>
-          Day<span style={{ color: "#2563eb" }}>Zero</span>
-        </h2>
+  margin: 0, 
+  fontSize: "22px", 
+  color: "#1e293b", 
+  fontWeight: "800",
+  letterSpacing: "-0.5px",
+  display: "flex",       // Added to align text and image
+  alignItems: "center"   // Keeps the globe level with the letters
+}}>
+  Day
+  <span style={{ color: "#2563eb", display: "flex", alignItems: "center" }}>
+    Zer
+    <img 
+      src={logoIcon} 
+      alt="o" 
+      style={{ 
+        height: "24px",      // Slightly larger than the font size to look balanced
+        marginLeft: "1px",   // Tiny gap so it doesn't touch the 'r'
+        filter: "brightness(0) saturate(100%) invert(31%) sepia(94%) saturate(1279%) hue-rotate(209deg) brightness(96%) contrast(92%)" 
+        // The filter above forces the black logo to match your #2563eb blue!
+      }} 
+    />
+  </span>
+</h2>
       </Link>
 
       {/* --- NAVIGATION LINKS --- */}
