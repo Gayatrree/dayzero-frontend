@@ -172,7 +172,7 @@ function Home() {
           <div style={styles.profileImage}>
              {/* Replace the span below with <img src={yourPhoto} style={{width: '100%', borderRadius: '50%'}} /> later */}
             <img 
-  src={yourPhoto} 
+  src={yourphoto} 
   alt="Gayatrree Paatil" 
   style={{
     width: '100%', 
