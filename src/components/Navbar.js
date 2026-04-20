@@ -46,15 +46,15 @@ function Navbar() {
   <span style={{ color: "#2563eb", display: "flex", alignItems: "center" }}>
     Zer
     <img 
-      src={logoIcon} 
-      alt="o" 
-      style={{ 
-        height: "24px",      // Slightly larger than the font size to look balanced
-        marginLeft: "1px",   // Tiny gap so it doesn't touch the 'r'
-        filter: "brightness(0) saturate(100%) invert(31%) sepia(94%) saturate(1279%) hue-rotate(209deg) brightness(96%) contrast(92%)" 
-        // The filter above forces the black logo to match your #2563eb blue!
-      }} 
-    />
+  src={logoIcon} 
+  alt="o" 
+  style={{ 
+    height: "22px", 
+    width: "auto",
+    marginLeft: "2px",
+    display: "inline-block"
+  }} 
+/>
   </span>
 </h2>
       </Link>
