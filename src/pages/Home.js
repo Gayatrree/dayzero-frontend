@@ -15,7 +15,7 @@ const styles = {
     textAlign: "center",
     color: "#111",
     backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${heroImage})`,
-    backgroundSize: "cover", // Changed back to cover for full hero effect
+    backgroundSize: "contain", // Changed back to cover for full hero effect
     backgroundPosition: "center",
     padding: "0 20px"
   },
@@ -150,13 +150,19 @@ function Home() {
         
         <div style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
           <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
-            "I created DayZero to solve the real-world challenges I faced as an international student. 
-            Our mission is to ensure every student feels supported, prepared, and welcomed from the 
-            moment they step off the plane."
+            "Day Zero was built from lived experience.
+            Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the early days of 
+            relocation — what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.
+            Day Zero exists to bridge that very gap.
+            Our mssion is to ensure that every student arrives not just prepared, but confident, supported, and at ease from 
+            day one — transforming what is often an overwhelming transition into a seamless beginning.
+            I created DayZero to solve the real-world challenges I faced as an international student, so that every student feels supported, prepared, and welcomed from the 
+            moment they step off the plane." 
+          
           </p>
           
           <h4 style={{ fontSize: "20px", color: "#1e293b", fontWeight: "700", marginBottom: "40px" }}>
-            — Gayatrree Paatil
+            ~ Gayatrree Paatil
           </h4>
           
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px" }}>
