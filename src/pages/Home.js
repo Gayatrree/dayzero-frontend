@@ -156,12 +156,12 @@ function Home() {
         </h3>
         <div style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
           <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
-            "Day Zero was built from lived experience.<b/>
+            "Day Zero was built from lived experience.<br/>
 
 Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the 
-early days of relocation—what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.<b/>
+early days of relocation—what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.<br/>
 
-Day Zero exists to bridge that very gap.<b/>
+Day Zero exists to bridge that very gap.<br/>
 
 Our mission is to ensure that every student arrives not just prepared, but confident, supported, and at ease from day one—transforming what is 
 often an overwhelming transition into a seamless beginning."
