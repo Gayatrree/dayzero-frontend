@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { PopupModal } from "react-calendly";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav
       style={{
@@ -17,7 +21,6 @@ function Navbar() {
     >
       {/* --- LOGO SECTION --- */}
       <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center" }}>
-        {/* Blue Square 'D' */}
         <div style={{
           backgroundColor: "#2563eb",
           color: "white",
@@ -34,7 +37,6 @@ function Navbar() {
           D
         </div>
 
-        {/* Text Container for Title and Tagline */}
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h2 style={{ 
             margin: 0, 
@@ -62,15 +64,38 @@ function Navbar() {
       <div style={{ display: "flex", gap: "25px", alignItems: "center" }}>
         <Link to="/" style={linkStyle}>Home</Link>
         <Link to="/packing" style={linkStyle}>Packing List</Link>
-        <Link to="/booking" style={{
-          ...linkStyle,
-          backgroundColor: "#2563eb",
-          color: "white",
-          padding: "8px 16px",
-          borderRadius: "6px"
-        }}>
+        
+        {/* Changed from Link to a Button for Calendly Popup */}
+        <button 
+          onClick={() => setIsOpen(true)}
+          style={{
+            ...linkStyle,
+            backgroundColor: "#2563eb",
+            color: "white",
+            padding: "8px 16px",
+            borderRadius: "6px",
+            border: "none",
+            cursor: "pointer",
+            outline: "none"
+          }}
+        >
           Book Now
-        </Link>
+        </button>
+
+        {/* Calendly Popup Logic */}
+        <PopupModal
+          url="https://calendly.com/gayatrreepaatil/30min" // Replace with your discovery call link
+          pageSettings={{
+            backgroundColor: 'ffffff',
+            hideEventTypeDetails: false,
+            hideLandingPageDetails: false,
+            primaryColor: '2563eb',
+            textColor: '4b5563'
+          }}
+          onModalClose={() => setIsOpen(false)}
+          open={isOpen}
+          rootElement={document.getElementById("root")}
+        />
       </div>
     </nav>
   );
@@ -80,7 +105,8 @@ const linkStyle = {
   textDecoration: "none",
   color: "#64748b",
   fontWeight: "500",
-  fontSize: "15px"
+  fontSize: "15px",
+  fontFamily: "'Inter', sans-serif"
 };
 
 export default Navbar;
