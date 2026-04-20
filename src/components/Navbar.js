@@ -49,14 +49,14 @@ function Navbar() {
   src={logoIcon} 
   alt="o" 
   style={{ 
-    height: "32px",          // Increased size
-    width: "auto",
-    marginLeft: "-2px",      // Negative margin pulls it closer to the 'r'
-    marginRight: "4px",
-    transform: "scale(1.8)", // This 'zooms in' on the globe icon specifically
-    filter: "brightness(0) saturate(100%) invert(31%) sepia(94%) saturate(1279%) hue-rotate(209deg) brightness(96%) contrast(92%)",
+    height: "26px",            // Natural height to match text
+    width: "26px",             // Force a square so it doesn't stretch
+    objectFit: "cover",        // This crops the white edges out
+    objectPosition: "center",  // Keeps the globe in the middle
+    marginLeft: "2px",
     display: "inline-block",
-    verticalAlign: "middle"
+    verticalAlign: "middle",
+    borderRadius: "50%"        // Optional: keeps the blue from leaking at the corners
   }} 
 />
   </span>
