@@ -127,7 +127,7 @@ function Home() {
           <span style={{ color: "#2563eb" }}>"zero confusion"</span>
         </h1>
         <p style={{ fontSize: "21px", marginBottom: "35px", color: "#4b5563", maxWidth: "600px" }}>
-          Moving abroad is hard. We make DayZero easy with expert guidance and essential arrival kits.
+          Moving abroad is hard. At DayZero we make it easy with proper guidance and essential arrival kits.
         </p>
         <button onClick={() => navigate("/booking")} style={styles.btn}>
           Explore Services
