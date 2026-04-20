@@ -3,7 +3,10 @@ import {
   FaSuitcase, 
   FaQuestionCircle, 
   FaBus,      // New Icon for Transport
-  FaUtensils  // New Icon for Cooking
+  FaUtensils,
+  FaBox,             // Added this
+  FaUniversity,      // Added this
+  FaFileSignature    // Added this  // New Icon for Cooking
 } from "react-icons/fa";
 
 // Map titles to icons
