@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaLinkedin, FaEnvelope, FaCheckCircle } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 import heroImage from "../assets/hero.jpg";
@@ -23,14 +23,6 @@ function Home() {
       backgroundPosition: "center",
       padding: "0 20px"
     },
-    headerWrapper: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      gap: "12px",
-      marginBottom: "30px",
-      marginTop: "40px",
-    },
     sectionTitle: {
       fontSize: "36px",
       color: "#1e293b",
@@ -38,15 +30,45 @@ function Home() {
       fontWeight: "800",
       letterSpacing: "-0.5px"
     },
-    integrationHub: {
-      backgroundColor: "#eff6ff",
-      border: "1px solid #bfdbfe",
-      borderRadius: "16px",
-      padding: "30px",
-      maxWidth: "850px",
-      margin: "0 auto 40px auto",
-      textAlign: "left",
-      boxShadow: "0 4px 12px rgba(37, 99, 235, 0.05)"
+    headerWrapper: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: "12px",
+      marginBottom: "20px",
+      marginTop: "40px",
+    },
+    integrationHook: {
+      fontSize: "clamp(22px, 3vw, 30px)",
+      fontWeight: "300",
+      fontStyle: "italic",
+      color: "#4b5563",
+      lineHeight: "1.5",
+      maxWidth: "900px",
+      margin: "20px auto 70px auto",
+      textAlign: "center"
+    },
+    socialGrid: {
+      display: "grid",
+      gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+      gap: "50px",
+      maxWidth: "1100px",
+      margin: "0 auto 100px auto",
+      textAlign: "center"
+    },
+    moduleTitle: {
+      fontSize: "18px",
+      fontWeight: "800",
+      color: "#1e293b",
+      marginBottom: "12px",
+      textTransform: "uppercase",
+      letterSpacing: "1.5px"
+    },
+    moduleDesc: {
+      fontSize: "15px",
+      color: "#64748b",
+      lineHeight: "1.7",
+      margin: "0"
     },
     grid: {
       display: "flex",
@@ -69,7 +91,7 @@ function Home() {
       boxShadow: "0 4px 10px rgba(37, 99, 235, 0.2)"
     },
     aboutSection: {
-      padding: "80px 20px",
+      padding: "100px 20px",
       backgroundColor: "#ffffff",
       textAlign: "center",
       display: "flex",
@@ -132,34 +154,47 @@ function Home() {
       </section>
 
       {/* SERVICES SECTION */}
-      <main ref={servicesRef} style={{ backgroundColor: "#f9fafb", padding: "60px 0" }}>
+      <main ref={servicesRef} style={{ backgroundColor: "#f9fafb", padding: "80px 0" }}>
         
-        {/* BEFORE YOU FLY & INTEGRATION HUB */}
+        {/* --- BEFORE YOU FLY & INTEGRATION HUB --- */}
         <section style={{ padding: "0 20px" }}>
           <div style={styles.headerWrapper}>
             <span style={{ fontSize: "32px" }}>🛫</span>
             <h2 style={styles.sectionTitle}>Before You Fly</h2>
           </div>
 
-          <div style={styles.integrationHub}>
-            <h3 style={{ color: "#2563eb", marginTop: 0, fontSize: "22px" }}>🧠 The Integration Hub</h3>
-            <p style={{ color: "#475569", fontSize: "17px", fontWeight: "600", marginBottom: "15px" }}>
-              "Know the unwritten rules so you don't feel like an outsider."
-            </p>
-            <p style={{ color: "#64748b", fontSize: "15px", lineHeight: "1.6", marginBottom: "20px" }}>
-              Our integration program ensures you land with confidence. Master the cultural nuances of Germany before you even pack your bags.
-            </p>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "12px" }}>
-              {[
-                "Supermarket navigation & Pfand system",
-                "WG (Shared Flat) etiquette & kitchen rules",
-                "Public etiquettes (Elevators, Punctuality)",
-                "Building social connections in a new city"
-              ].map((item, idx) => (
-                <div key={idx} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#1e293b" }}>
-                  <FaCheckCircle color="#10b981" /> {item}
-                </div>
-              ))}
+          <p style={styles.integrationHook}>
+            "Master the unwritten rules of German life <span style={{ color: "#2563eb", fontWeight: "700" }}>before</span> you feel like an outsider."
+          </p>
+
+          <div style={styles.socialGrid}>
+            <div>
+              <div style={{ fontSize: "40px", marginBottom: "15px" }}>🛒</div>
+              <h3 style={styles.moduleTitle}>Grocery Safari</h3>
+              <p style={styles.moduleDesc}>
+                Navigate the checkout sprint, decode the Pfand bottle system, and master the aisle logic of German supermarkets.
+              </p>
+            </div>
+            <div>
+              <div style={{ fontSize: "40px", marginBottom: "15px" }}>🤝</div>
+              <h3 style={styles.moduleTitle}>The WG Constitution</h3>
+              <p style={styles.moduleDesc}>
+                Rules of engagement for shared living. From cleaning rotations to kitchen etiquette that keeps the peace.
+              </p>
+            </div>
+            <div>
+              <div style={{ fontSize: "40px", marginBottom: "15px" }}>⚖️</div>
+              <h3 style={styles.moduleTitle}>Public Protocol</h3>
+              <p style={styles.moduleDesc}>
+                The unwritten laws: standing right on escalators, the silence of public transit, and the gold standard of punctuality.
+              </p>
+            </div>
+            <div>
+              <div style={{ fontSize: "40px", marginBottom: "15px" }}>☕</div>
+              <h3 style={styles.moduleTitle}>Social Architecture</h3>
+              <p style={styles.moduleDesc}>
+                Breaking the ice. Learn how to navigate German social structures and build meaningful connections from day one.
+              </p>
             </div>
           </div>
 
@@ -172,8 +207,8 @@ function Home() {
           </div>
         </section>
 
-        {/* AFTER ARRIVAL */}
-        <section style={{ padding: "0 20px" }}>
+        {/* --- AFTER ARRIVAL --- */}
+        <section style={{ padding: "80px 20px 0 20px" }}>
           <div style={styles.headerWrapper}>
             <span style={{ fontSize: "32px" }}>🏠</span>
             <h2 style={styles.sectionTitle}>After Arrival</h2>
@@ -187,8 +222,8 @@ function Home() {
           </div>
         </section>
 
-        {/* EXTENDED SUPPORT */}
-        <section style={{ padding: "0 20px" }}>
+        {/* --- EXTENDED SUPPORT --- */}
+        <section style={{ padding: "80px 20px 0 20px" }}>
           <div style={styles.headerWrapper}>
             <span style={{ fontSize: "32px" }}>🤝</span>
             <h2 style={styles.sectionTitle}>Extended Support</h2>
