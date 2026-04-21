@@ -45,14 +45,16 @@ function Home() {
       color: "#4b5563",
       lineHeight: "1.5",
       maxWidth: "900px",
-      margin: "20px auto 70px auto",
+      margin: "20px auto 50px auto",
       textAlign: "center"
     },
-    socialGrid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-      gap: "50px",
-      maxWidth: "1100px",
+    // Updated to stack items one below the other
+    verticalList: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      gap: "60px",
+      maxWidth: "800px",
       margin: "0 auto 100px auto",
       textAlign: "center"
     },
@@ -65,9 +67,9 @@ function Home() {
       letterSpacing: "1.5px"
     },
     moduleDesc: {
-      fontSize: "15px",
+      fontSize: "16px",
       color: "#64748b",
-      lineHeight: "1.7",
+      lineHeight: "1.8",
       margin: "0"
     },
     grid: {
@@ -167,37 +169,39 @@ function Home() {
             "Master the unwritten rules of German life <span style={{ color: "#2563eb", fontWeight: "700" }}>before</span> you feel like an outsider."
           </p>
 
-          <div style={styles.socialGrid}>
+          {/* Integration Hub - Vertically Stacked Sections */}
+          <div style={styles.verticalList}>
             <div>
               <div style={{ fontSize: "40px", marginBottom: "15px" }}>🛒</div>
               <h3 style={styles.moduleTitle}>Grocery Safari</h3>
               <p style={styles.moduleDesc}>
-                Navigate the checkout sprint, decode the Pfand bottle system, and master the aisle logic of German supermarkets.
+                What do you actually buy when everything looks unfamiliar? And how do you navigate supermarkets in Germany without confusion?
+                We’ll walk you through all of it—before you even get there.
               </p>
             </div>
+
             <div>
-              <div style={{ fontSize: "40px", marginBottom: "15px" }}>🤝</div>
+              <div style={{ fontSize: "40px", marginBottom: "15px" }}>🏠</div>
               <h3 style={styles.moduleTitle}>The WG Constitution</h3>
               <p style={styles.moduleDesc}>
-                Rules of engagement for shared living. From cleaning rotations to kitchen etiquette that keeps the peace.
+                Never shared a flat with strangers before? Unsure who cleans what, or how the kitchen rules work? 
+                Don’t worry—we’ll help you settle in without awkward moments.
               </p>
             </div>
+
             <div>
               <div style={{ fontSize: "40px", marginBottom: "15px" }}>⚖️</div>
-              <h3 style={styles.moduleTitle}>Public Protocol</h3>
+              <h3 style={styles.moduleTitle}>The "unwritten rules"</h3>
               <p style={styles.moduleDesc}>
-                The unwritten laws: standing right on escalators, the silence of public transit, and the gold standard of punctuality.
-              </p>
-            </div>
-            <div>
-              <div style={{ fontSize: "40px", marginBottom: "15px" }}>☕</div>
-              <h3 style={styles.moduleTitle}>Social Architecture</h3>
-              <p style={styles.moduleDesc}>
-                Breaking the ice. Learn how to navigate German social structures and build meaningful connections from day one.
+                Unsure about the small but important social norms?
+                From escalator etiquette to punctuality and public behavior?
+                And wondering how to build meaningful connections in a new environment?
+                We’ll prepare you for it—so you can navigate daily life and social interactions with ease.
               </p>
             </div>
           </div>
 
+          {/* Service Cards Grid */}
           <div style={styles.grid}>
             {serviceList.filter(s => s.category === "before").map((service, index) => (
               <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
