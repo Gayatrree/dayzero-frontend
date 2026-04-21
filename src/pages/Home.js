@@ -11,7 +11,7 @@ function Home() {
 
   const styles = {
     hero: {
-      height: "75vh",
+      minHeight: "75vh", // Changed to minHeight for better mobile scaling
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
@@ -19,12 +19,12 @@ function Home() {
       textAlign: "center",
       color: "#111",
       backgroundImage: `linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(${heroImage})`,
-      backgroundSize: "contain",
+      backgroundSize: "cover", // Changed from contain to cover to prevent distortion
       backgroundPosition: "center",
-      padding: "0 20px"
+      padding: "40px 20px"
     },
     sectionTitle: {
-      fontSize: "36px",
+      fontSize: "clamp(28px, 5vw, 36px)", // Responsive font size
       color: "#1e293b",
       margin: "0",
       fontWeight: "800",
@@ -37,23 +37,25 @@ function Home() {
       gap: "12px",
       marginBottom: "20px",
       marginTop: "40px",
+      flexWrap: "wrap" // Ensures icon and text stay together on small screens
     },
     integrationHook: {
-      fontSize: "clamp(22px, 3vw, 30px)",
+      fontSize: "clamp(20px, 3vw, 30px)",
       fontWeight: "300",
       fontStyle: "italic",
       color: "#4b5563",
       lineHeight: "1.5",
       maxWidth: "900px",
       margin: "20px auto 50px auto",
-      textAlign: "center"
+      textAlign: "center",
+      padding: "0 10px"
     },
     verticalList: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       gap: "60px",
-      maxWidth: "850px",
+      maxWidth: "90%", // Responsive width
       margin: "0 auto 100px auto",
       textAlign: "center"
     },
@@ -77,7 +79,8 @@ function Home() {
       justifyContent: "center",
       flexWrap: "wrap",
       maxWidth: "1200px",
-      margin: "0 auto 60px auto"
+      margin: "0 auto 60px auto",
+      padding: "0 20px"
     },
     btn: {
       padding: "16px 36px",
@@ -92,7 +95,7 @@ function Home() {
       boxShadow: "0 4px 10px rgba(37, 99, 235, 0.2)"
     },
     aboutSection: {
-      padding: "100px 20px",
+      padding: "80px 20px",
       backgroundColor: "#ffffff",
       textAlign: "center",
       display: "flex",
@@ -137,17 +140,17 @@ function Home() {
   ];
 
   return (
-    <div style={{ backgroundColor: "#ffffff", fontFamily: "'Inter', sans-serif" }}>
+    <div style={{ backgroundColor: "#ffffff", fontFamily: "'Inter', sans-serif", overflowX: "hidden" }}>
       <Navbar />
 
       {/* HERO SECTION */}
       <section style={styles.hero}>
-        <h1 style={{ fontSize: "clamp(32px, 5vw, 52px)", marginBottom: "20px", color: "#111", maxWidth: "900px", fontWeight: "800" }}>
+        <h1 style={{ fontSize: "clamp(30px, 6vw, 52px)", marginBottom: "20px", color: "#111", maxWidth: "900px", fontWeight: "800" }}>
           Land in a new country with <br /> 
           <span style={{ color: "#2563eb" }}>"zero confusion"</span>
         </h1>
         <p style={{ 
-          fontSize: "22px", 
+          fontSize: "clamp(18px, 4vw, 22px)", 
           marginBottom: "35px", 
           color: "#1e293b", 
           maxWidth: "640px", 
@@ -162,9 +165,16 @@ function Home() {
       </section>
 
       {/* --- WHAT ARE WE & FOR WHOM --- */}
-      <section style={{ padding: "100px 20px", backgroundColor: "#ffffff" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px" }}>
-          <div>
+      <section style={{ padding: "80px 20px", backgroundColor: "#ffffff" }}>
+        <div style={{ 
+          maxWidth: "1100px", 
+          margin: "0 auto", 
+          display: "flex", 
+          flexWrap: "wrap", 
+          gap: "40px",
+          justifyContent: "center"
+        }}>
+          <div style={{ flex: "1 1 300px", minWidth: "280px" }}>
             <h2 style={{ ...styles.moduleTitle, fontSize: "22px", color: "#2563eb", marginBottom: "20px" }}>What are we?</h2>
             <p style={{ fontSize: "17px", color: "#4b5563", lineHeight: "1.8" }}>
               DayZero is an initiative designed to help students transition smoothly into life abroad. 
@@ -173,7 +183,7 @@ function Home() {
             </p>
           </div>
 
-          <div>
+          <div style={{ flex: "1 1 300px", minWidth: "280px" }}>
             <h2 style={{ ...styles.moduleTitle, fontSize: "22px", color: "#2563eb", marginBottom: "20px" }}>Who is this for?</h2>
             <p style={{ fontSize: "17px", color: "#4b5563", lineHeight: "1.8" }}>
               We support students heading to Germany who have secured university admission and are in 
@@ -272,12 +282,12 @@ function Home() {
       {/* ABOUT SECTION */}
       <section id="about" style={{ ...styles.aboutSection, scrollMarginTop: "80px" }}>
         <h2 style={styles.aboutHeader}>About</h2>
-        <h3 style={{ fontSize: "22px", color: "#64748b", marginBottom: "30px", fontWeight: "500" }}>
+        <h3 style={{ fontSize: "clamp(18px, 4vw, 22px)", color: "#64748b", marginBottom: "30px", fontWeight: "500" }}>
           Built by a student, for students.
         </h3>
         
         <div style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
-          <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
+          <p style={{ fontSize: "clamp(16px, 3.5vw, 18px)", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
             "Day Zero was built from lived experience.<br/>
             Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the early days of
             relocation — what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.<br/>
@@ -290,7 +300,6 @@ function Home() {
             ~ Gayatrree Paatil
           </h4>
           
-          {/* CONTACT SECTION - id="contact" for the Navbar link */}
           <div id="contact" style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px", scrollMarginTop: "100px" }}>
             <a 
               href="mailto:gayatrreepaatil@gmail.com" 
