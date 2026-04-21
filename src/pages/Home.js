@@ -204,7 +204,7 @@ function Home() {
               <div style={{ fontSize: "40px", marginBottom: "15px" }}>🛒</div>
               <h3 style={styles.moduleTitle}>Grocery Safari</h3>
               <p style={styles.moduleDesc}>
-                What do you actually buy when everything looks unfamiliar? And how do you navigate supermarkets in Germany without confusion?
+                What do you actually buy when everything looks unfamiliar? And how do you navigate supermarkets in Germany without confusion?<br/>
                 We’ll walk you through all of it—before you even get there.
               </p>
             </div>
@@ -213,7 +213,7 @@ function Home() {
               <div style={{ fontSize: "40px", marginBottom: "15px" }}>🏠</div>
               <h3 style={styles.moduleTitle}>The WG Constitution</h3>
               <p style={styles.moduleDesc}>
-                Never shared a flat with strangers before? Unsure who cleans what, or how the kitchen rules work? 
+                Never shared a flat with strangers before? Unsure who cleans what, or how the kitchen rules work? <br/>
                 Don’t worry—we’ll help you settle in without awkward moments.
               </p>
             </div>
@@ -223,7 +223,8 @@ function Home() {
               <h3 style={styles.moduleTitle}>The "unwritten rules"</h3>
               <p style={styles.moduleDesc}>
                 Unsure about the small but important social norms? From escalator etiquette to punctuality and public behavior. 
-                Wondering how to build meaningful connections in a new environment? We’ll prepare you for it.
+                Wondering how to build meaningful connections in a new environment? <br/> 
+                We’ll prepare you for it, so you rock at your freshers meet.
               </p>
             </div>
           </div>
