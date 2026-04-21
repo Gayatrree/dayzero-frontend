@@ -19,7 +19,7 @@ function Home() {
       textAlign: "center",
       color: "#111",
       backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${heroImage})`,
-      backgroundSize: "cover",
+      backgroundSize: "contain",
       backgroundPosition: "center",
       padding: "0 20px"
     },
@@ -131,10 +131,10 @@ function Home() {
     { title: "Survival Cooking 101", desc: " Don't starve! Master basic Indian meals before you fly abroad", path: "/cooking", category: "before" },
     { title: "Local Transport Guidance", desc: "Step-by-step directions from airport to your dorm", path: "/transport", category: "before" },
     { title: "Packing Checklist", desc: "Never forget essentials with our customised packing list", path: "/packing", category: "before" },
-    { title: "Airport Pickup", desc: "Safe pickup from airport to your residence", path: "/booking", category: "after" },
-    { title: "Starter Kit Delivery", desc: "Pillow, blanket, and other essentials at your door-step", path: "/starter-kit", category: "after" },
-    { title: "Set up Bank Account", desc: "Guidance for setting up Bank account", path: "/bank", category: "extended" },
-    { title: "City Registration", desc: "Learn how to book your appointment for the Stadt Anmeldung", path: "/registration", category: "extended" },
+    { title: "Airport Pickup", desc: "Safe pickup from airport to your residence (Coming soon ...)", path: "/booking", category: "after" },
+    { title: "Starter Kit Delivery", desc: "Pillow, blanket, and other essentials at your door-step (Coming soon ...)", path: "/starter-kit", category: "after" },
+    { title: "Set up Bank Account", desc: "Guidance for setting up Bank account (Coming soon ...)", path: "/bank", category: "extended" },
+    { title: "City Registration", desc: "Learn how to book your appointment for the Stadt Anmeldung (Coming soon ...)", path: "/registration", category: "extended" },
   ];
 
   return (
@@ -244,12 +244,15 @@ function Home() {
 
       {/* ABOUT SECTION */}
       <section style={styles.aboutSection}>
+        <section id="about" style={{ ...styles.aboutSection, scrollMarginTop: "80px" }}></section>
         <h2 style={styles.aboutHeader}>About</h2>
         <h3 style={{ fontSize: "22px", color: "#64748b", marginBottom: "30px", fontWeight: "500" }}>
           Built by a student, for students.
         </h3>
         
-        <div style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
+        <div 
+        
+        style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
   <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
     "Day Zero was built from lived experience.<br/>
     Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the early days of
@@ -264,7 +267,8 @@ function Home() {
             ~ Gayatrree Paatil
           </h4>
           
-          <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px" }}>
+          <div id="contact" style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px", scrollMarginTop: "100px" }}>
+        
             <a 
               href="mailto:gayatrreepaatil@gmail.com" 
               style={{ ...styles.contactButton, backgroundColor: "#f1f5f9", color: "#1e293b" }}

@@ -5,6 +5,14 @@ import { PopupModal } from "react-calendly";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Helper function for smooth scrolling to sections
+  const handleScroll = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <nav
       style={{
@@ -63,9 +71,18 @@ function Navbar() {
       {/* --- NAVIGATION LINKS --- */}
       <div style={{ display: "flex", gap: "25px", alignItems: "center" }}>
         <Link to="/" style={linkStyle}>Home</Link>
-        <Link to="/packing" style={linkStyle}>Packing List</Link>
         
-        {/* Changed from Link to a Button for Calendly Popup */}
+        {/* Scroll Link for About */}
+        <button onClick={() => handleScroll("about")} style={buttonLinkStyle}>
+          About
+        </button>
+
+        {/* Scroll Link for Contact/Footer */}
+        <button onClick={() => handleScroll("contact")} style={buttonLinkStyle}>
+          Contact
+        </button>
+        
+        {/* Updated Book a Call Button */}
         <button 
           onClick={() => setIsOpen(true)}
           style={{
@@ -79,12 +96,12 @@ function Navbar() {
             outline: "none"
           }}
         >
-          Book Now
+          Book a Call now
         </button>
 
         {/* Calendly Popup Logic */}
         <PopupModal
-          url="https://calendly.com/gayatrreepaatil/30min" // Replace with your discovery call link
+          url="https://calendly.com/gayatrreepaatil/30min"
           pageSettings={{
             backgroundColor: 'ffffff',
             hideEventTypeDetails: false,
@@ -107,6 +124,18 @@ const linkStyle = {
   fontWeight: "500",
   fontSize: "15px",
   fontFamily: "'Inter', sans-serif"
+};
+
+// Style for buttons that look like links
+const buttonLinkStyle = {
+  background: "none",
+  border: "none",
+  color: "#64748b",
+  fontWeight: "500",
+  fontSize: "15px",
+  fontFamily: "'Inter', sans-serif",
+  cursor: "pointer",
+  padding: 0
 };
 
 export default Navbar;
