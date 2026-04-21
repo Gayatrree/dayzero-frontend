@@ -302,7 +302,7 @@ function Home() {
           
           <div id="contact" style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px", scrollMarginTop: "100px" }}>
             <a 
-              href="mailto:gayatrreepaatil@gmail.com" 
+              href="mailto:dayzerostudent@gmail.com" 
               style={{ ...styles.contactButton, backgroundColor: "#f1f5f9", color: "#1e293b" }}
             >
               <FaEnvelope color="#2563eb" /> Email Me

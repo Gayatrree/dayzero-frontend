@@ -72,7 +72,7 @@ function CookingPage() {
               ✕ Close Calendar
             </button>
             <InlineWidget 
-              url="https://calendly.com/gayatrreepaatil/30min" // Replace with your actual link
+              url="https://calendly.com/dayzerostudent/30min" // Replace with your actual link
               styles={{ height: '650px' }}
             />
           </div>

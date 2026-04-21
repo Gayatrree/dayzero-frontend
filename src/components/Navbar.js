@@ -107,7 +107,7 @@ function Navbar() {
         </button>
 
         <PopupModal
-          url="https://calendly.com/gayatrreepaatil/30min"
+          url="https://calendly.com/dayzerostudent/30min"
           pageSettings={{
             backgroundColor: 'ffffff',
             hideEventTypeDetails: false,
