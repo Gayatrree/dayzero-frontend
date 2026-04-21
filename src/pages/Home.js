@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaEnvelope, FaCheckCircle } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import ServiceCard from "../components/ServiceCard";
 import heroImage from "../assets/hero.jpg";
@@ -9,7 +9,6 @@ function Home() {
   const navigate = useNavigate();
   const servicesRef = useRef(null);
 
-  // MOVE THE STYLES OBJECT INSIDE THE FUNCTION HERE
   const styles = {
     hero: {
       height: "75vh",
@@ -20,7 +19,7 @@ function Home() {
       textAlign: "center",
       color: "#111",
       backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${heroImage})`,
-      backgroundSize: "contain",
+      backgroundSize: "cover",
       backgroundPosition: "center",
       padding: "0 20px"
     },
@@ -29,7 +28,7 @@ function Home() {
       alignItems: "center",
       justifyContent: "center",
       gap: "12px",
-      marginBottom: "40px",
+      marginBottom: "30px",
       marginTop: "40px",
     },
     sectionTitle: {
@@ -39,13 +38,15 @@ function Home() {
       fontWeight: "800",
       letterSpacing: "-0.5px"
     },
-    aboutHeader: {
-      fontSize: "28px",
-      color: "#1e293b",
-      fontWeight: "700",
-      marginBottom: "10px",
-      letterSpacing: "1px",
-      textTransform: "uppercase"
+    integrationHub: {
+      backgroundColor: "#eff6ff",
+      border: "1px solid #bfdbfe",
+      borderRadius: "16px",
+      padding: "30px",
+      maxWidth: "850px",
+      margin: "0 auto 40px auto",
+      textAlign: "left",
+      boxShadow: "0 4px 12px rgba(37, 99, 235, 0.05)"
     },
     grid: {
       display: "flex",
@@ -76,6 +77,14 @@ function Home() {
       alignItems: "center",
       borderTop: "1px solid #f1f5f9"
     },
+    aboutHeader: {
+      fontSize: "28px",
+      color: "#1e293b",
+      fontWeight: "700",
+      marginBottom: "10px",
+      letterSpacing: "1px",
+      textTransform: "uppercase"
+    },
     contactButton: {
       display: "flex",
       alignItems: "center",
@@ -101,27 +110,8 @@ function Home() {
     { title: "Airport Pickup", desc: "Safe pickup from airport to your residence", path: "/booking", category: "after" },
     { title: "Starter Kit Delivery", desc: "Pillow, blanket, and essentials at your door", path: "/starter-kit", category: "after" },
     { title: "Set up Bank Account", desc: "Guidance for Blocked Account and local cards", path: "/bank", category: "extended" },
-    { title: "City Registration", desc: "Book your appointment for the Bürgerbüro/City hall", path: "/registration", category: "extended" },
+    { title: "City Registration", desc: "Book your appointment for the Bürgerbüro", path: "/registration", category: "extended" },
   ];
-
-  // Moving renderCategory inside Home so it can see 'styles'
-  const renderCategory = (category, label, emoji) => (
-    <section style={{ padding: "0 20px" }}>
-      <div style={styles.headerWrapper}>
-        <span style={{ fontSize: "32px" }}>{emoji}</span>
-        <h2 style={styles.sectionTitle}>{label}</h2>
-      </div>
-      <div style={styles.grid}>
-        {serviceList
-          .filter((s) => s.category === category)
-          .map((service, index) => (
-            <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
-              <ServiceCard title={service.title} description={service.desc} />
-            </div>
-          ))}
-      </div>
-    </section>
-  );
 
   return (
     <div style={{ backgroundColor: "#ffffff", fontFamily: "'Inter', sans-serif" }}>
@@ -143,9 +133,74 @@ function Home() {
 
       {/* SERVICES SECTION */}
       <main ref={servicesRef} style={{ backgroundColor: "#f9fafb", padding: "60px 0" }}>
-        {renderCategory("before", "Before You Fly", "🛫")}
-        {renderCategory("after", "After Arrival", "🏠")}
-        {renderCategory("extended", "Extended Support", "🤝")}
+        
+        {/* BEFORE YOU FLY & INTEGRATION HUB */}
+        <section style={{ padding: "0 20px" }}>
+          <div style={styles.headerWrapper}>
+            <span style={{ fontSize: "32px" }}>🛫</span>
+            <h2 style={styles.sectionTitle}>Before You Fly</h2>
+          </div>
+
+          <div style={styles.integrationHub}>
+            <h3 style={{ color: "#2563eb", marginTop: 0, fontSize: "22px" }}>🧠 The Integration Hub</h3>
+            <p style={{ color: "#475569", fontSize: "17px", fontWeight: "600", marginBottom: "15px" }}>
+              "Know the unwritten rules so you don't feel like an outsider."
+            </p>
+            <p style={{ color: "#64748b", fontSize: "15px", lineHeight: "1.6", marginBottom: "20px" }}>
+              Our integration program ensures you land with confidence. Master the cultural nuances of Germany before you even pack your bags.
+            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "12px" }}>
+              {[
+                "Supermarket navigation & Pfand system",
+                "WG (Shared Flat) etiquette & kitchen rules",
+                "Public etiquettes (Elevators, Punctuality)",
+                "Building social connections in a new city"
+              ].map((item, idx) => (
+                <div key={idx} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "#1e293b" }}>
+                  <FaCheckCircle color="#10b981" /> {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div style={styles.grid}>
+            {serviceList.filter(s => s.category === "before").map((service, index) => (
+              <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
+                <ServiceCard title={service.title} description={service.desc} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* AFTER ARRIVAL */}
+        <section style={{ padding: "0 20px" }}>
+          <div style={styles.headerWrapper}>
+            <span style={{ fontSize: "32px" }}>🏠</span>
+            <h2 style={styles.sectionTitle}>After Arrival</h2>
+          </div>
+          <div style={styles.grid}>
+            {serviceList.filter(s => s.category === "after").map((service, index) => (
+              <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
+                <ServiceCard title={service.title} description={service.desc} />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* EXTENDED SUPPORT */}
+        <section style={{ padding: "0 20px" }}>
+          <div style={styles.headerWrapper}>
+            <span style={{ fontSize: "32px" }}>🤝</span>
+            <h2 style={styles.sectionTitle}>Extended Support</h2>
+          </div>
+          <div style={styles.grid}>
+            {serviceList.filter(s => s.category === "extended").map((service, index) => (
+              <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
+                <ServiceCard title={service.title} description={service.desc} />
+              </div>
+            ))}
+          </div>
+        </section>
       </main>
 
       {/* ABOUT SECTION */}
@@ -154,34 +209,44 @@ function Home() {
         <h3 style={{ fontSize: "22px", color: "#64748b", marginBottom: "30px", fontWeight: "500" }}>
           Built by a student, for students.
         </h3>
+        
         <div style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
           <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
-            "Day Zero was built from lived experience.<br/>
-
-Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the 
-early days of relocation—what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.<br/>
-
-Day Zero exists to bridge that very gap.<br/>
-
-Our mission is to ensure that every student arrives not just prepared, but confident, supported, and at ease from day one—transforming what is 
-often an overwhelming transition into a seamless beginning."
+            "Day Zero was built from lived experience.
+            Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the early days of
+            relocation — what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.
+            Day Zero exists to bridge that very gap.
+            Our mission is to ensure that every student arrives not just prepared, but confident, supported, and at ease from
+            day one — transforming what is often an overwhelming transition into a seamless beginning.
+            I created DayZero to solve the real-world challenges I faced as an international student, so that every student feels supported, prepared, and welcomed from the
+            moment they step off the plane."
           </p>
+          
           <h4 style={{ fontSize: "20px", color: "#1e293b", fontWeight: "700", marginBottom: "40px" }}>
             ~ Gayatrree Paatil
           </h4>
+          
           <div style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px" }}>
-            <a href="mailto:gayatrreepaatil@gmail.com" style={{ ...styles.contactButton, backgroundColor: "#f1f5f9", color: "#1e293b" }}>
+            <a 
+              href="mailto:gayatrreepaatil@gmail.com" 
+              style={{ ...styles.contactButton, backgroundColor: "#f1f5f9", color: "#1e293b" }}
+            >
               <FaEnvelope color="#2563eb" /> Email Me
             </a>
-            <a href="https://www.linkedin.com/in/gayatrreepaatil" target="_blank" rel="noopener noreferrer" style={{ ...styles.contactButton, backgroundColor: "#0a66c2", color: "white" }}>
+            <a 
+              href="https://www.linkedin.com/in/gayatrreepaatil" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ ...styles.contactButton, backgroundColor: "#0a66c2", color: "white" }}
+            >
               <FaLinkedin /> Connect on LinkedIn
             </a>
           </div>
         </div>
       </section>
-
+      
       <footer style={{ padding: "40px", textAlign: "center", color: "#94a3b8", fontSize: "14px", backgroundColor: "#f8fafc" }}>
-        © 2026 DayZero Student Services.
+        © 2026 DayZero Student Services. Built for international success.
       </footer>
     </div>
   );
