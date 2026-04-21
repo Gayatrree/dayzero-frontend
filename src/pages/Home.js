@@ -19,7 +19,7 @@ function Home() {
       textAlign: "center",
       color: "#111",
       backgroundImage: `linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(${heroImage})`,
-      backgroundSize: "cover", // Changed from contain to cover to prevent distortion
+      backgroundSize: "contain", // Changed from contain to cover to prevent distortion
       backgroundPosition: "center",
       padding: "40px 20px"
     },
