@@ -128,13 +128,13 @@ function Home() {
   };
 
   const serviceList = [
-    { title: "Survival Cooking 101", desc: "Master 7 basic meals before you fly abroad", path: "/cooking", category: "before" },
-    { title: "Local Transport Guidance", desc: "Step-by-step directions from airport to dorm", path: "/transport", category: "before" },
-    { title: "Packing Checklist", desc: "Never forget essentials with our custom list", path: "/packing", category: "before" },
+    { title: "Survival Cooking 101", desc: " Don't starve! Master basic Indian meals before you fly abroad", path: "/cooking", category: "before" },
+    { title: "Local Transport Guidance", desc: "Step-by-step directions from airport to your dorm", path: "/transport", category: "before" },
+    { title: "Packing Checklist", desc: "Never forget essentials with our customised packing list", path: "/packing", category: "before" },
     { title: "Airport Pickup", desc: "Safe pickup from airport to your residence", path: "/booking", category: "after" },
-    { title: "Starter Kit Delivery", desc: "Pillow, blanket, and essentials at your door", path: "/starter-kit", category: "after" },
-    { title: "Set up Bank Account", desc: "Guidance for Blocked Account and local cards", path: "/bank", category: "extended" },
-    { title: "City Registration", desc: "Book your appointment for the Bürgerbüro", path: "/registration", category: "extended" },
+    { title: "Starter Kit Delivery", desc: "Pillow, blanket, and other essentials at your door-step", path: "/starter-kit", category: "after" },
+    { title: "Set up Bank Account", desc: "Guidance for setting up Bank account", path: "/bank", category: "extended" },
+    { title: "City Registration", desc: "Learn how to book your appointment for the Stadt Anmeldung", path: "/registration", category: "extended" },
   ];
 
   return (
