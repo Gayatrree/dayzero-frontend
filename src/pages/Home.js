@@ -18,7 +18,7 @@ function Home() {
       alignItems: "center",
       textAlign: "center",
       color: "#111",
-      backgroundImage: `linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(${heroImage})`,
+      backgroundImage: `linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url(${heroImage})`,
       backgroundSize: "contain",
       backgroundPosition: "center",
       padding: "0 20px"
@@ -48,13 +48,12 @@ function Home() {
       margin: "20px auto 50px auto",
       textAlign: "center"
     },
-    // Updated to stack items one below the other
     verticalList: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       gap: "60px",
-      maxWidth: "800px",
+      maxWidth: "850px",
       margin: "0 auto 100px auto",
       textAlign: "center"
     },
@@ -128,13 +127,13 @@ function Home() {
   };
 
   const serviceList = [
-    { title: "Survival Cooking 101", desc: " Don't starve! Master basic Indian meals before you fly abroad", path: "/cooking", category: "before" },
+    { title: "Survival Cooking 101", desc: "Master basic meals before you fly abroad", path: "/cooking", category: "before" },
     { title: "Local Transport Guidance", desc: "Step-by-step directions from airport to your dorm", path: "/transport", category: "before" },
     { title: "Packing Checklist", desc: "Never forget essentials with our customised packing list", path: "/packing", category: "before" },
     { title: "Airport Pickup", desc: "Safe pickup from airport to your residence (Coming soon ...)", path: "/booking", category: "after" },
-    { title: "Starter Kit Delivery", desc: "Pillow, blanket, and other essentials at your door-step (Coming soon ...)", path: "/starter-kit", category: "after" },
-    { title: "Set up Bank Account", desc: "Guidance for setting up Bank account (Coming soon ...)", path: "/bank", category: "extended" },
-    { title: "City Registration", desc: "Learn how to book your appointment for the Stadt Anmeldung (Coming soon ...)", path: "/registration", category: "extended" },
+    { title: "Starter Kit Delivery", desc: "Pillow, blanket, and essentials at your door (Coming soon ...)", path: "/starter-kit", category: "after" },
+    { title: "Set up Bank Account", desc: "Guidance for Blocked Account and local cards (Coming soon ...)", path: "/bank", category: "extended" },
+    { title: "City Registration", desc: "Book your appointment for the Stadt Anmeldung (Coming soon ...)", path: "/registration", category: "extended" },
   ];
 
   return (
@@ -147,12 +146,43 @@ function Home() {
           Land in a new country with <br /> 
           <span style={{ color: "#2563eb" }}>"zero confusion"</span>
         </h1>
-        <p style={{ fontSize: "21px", marginBottom: "35px", color: "#4b5563", maxWidth: "600px" }}>
+        <p style={{ 
+          fontSize: "22px", 
+          marginBottom: "35px", 
+          color: "#1e293b", 
+          maxWidth: "640px", 
+          fontWeight: "600",
+          lineHeight: "1.6"
+        }}>
           Moving abroad is hard. At DayZero we make it easy with proper guidance and essential arrival kits.
         </p>
         <button onClick={scrollToServices} style={styles.btn}>
           Explore Services
         </button>
+      </section>
+
+      {/* --- WHAT ARE WE & FOR WHOM --- */}
+      <section style={{ padding: "100px 20px", backgroundColor: "#ffffff" }}>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "60px" }}>
+          <div>
+            <h2 style={{ ...styles.moduleTitle, fontSize: "22px", color: "#2563eb", marginBottom: "20px" }}>What are we?</h2>
+            <p style={{ fontSize: "17px", color: "#4b5563", lineHeight: "1.8" }}>
+              DayZero is an initiative designed to help students transition smoothly into life abroad. 
+              We guide you through every practical aspect—from planning your journey and packing smartly 
+              to understanding everyday life in a new country—so your transition feels comfortable, not overwhelming.
+            </p>
+          </div>
+
+          <div>
+            <h2 style={{ ...styles.moduleTitle, fontSize: "22px", color: "#2563eb", marginBottom: "20px" }}>Who is this for?</h2>
+            <p style={{ fontSize: "17px", color: "#4b5563", lineHeight: "1.8" }}>
+              We support students heading to Germany who have secured university admission and are in 
+              the final stages of their visa process. Our role is to bridge the gap between university 
+              acceptance and arrival—helping you feel prepared, informed, and ready to navigate your 
+              new environment from the moment you land.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* SERVICES SECTION */}
@@ -169,7 +199,6 @@ function Home() {
             "Master the unwritten rules of German life <span style={{ color: "#2563eb", fontWeight: "700" }}>before</span> you feel like an outsider."
           </p>
 
-          {/* Integration Hub - Vertically Stacked Sections */}
           <div style={styles.verticalList}>
             <div>
               <div style={{ fontSize: "40px", marginBottom: "15px" }}>🛒</div>
@@ -193,15 +222,12 @@ function Home() {
               <div style={{ fontSize: "40px", marginBottom: "15px" }}>⚖️</div>
               <h3 style={styles.moduleTitle}>The "unwritten rules"</h3>
               <p style={styles.moduleDesc}>
-                Unsure about the small but important social norms?
-                From escalator etiquette to punctuality and public behavior?
-                And wondering how to build meaningful connections in a new environment?
-                We’ll prepare you for it—so you can navigate daily life and social interactions with ease.
+                Unsure about the small but important social norms? From escalator etiquette to punctuality and public behavior. 
+                Wondering how to build meaningful connections in a new environment? We’ll prepare you for it.
               </p>
             </div>
           </div>
 
-          {/* Service Cards Grid */}
           <div style={styles.grid}>
             {serviceList.filter(s => s.category === "before").map((service, index) => (
               <div key={index} onClick={() => navigate(service.path)} style={{ cursor: "pointer" }}>
@@ -243,32 +269,28 @@ function Home() {
       </main>
 
       {/* ABOUT SECTION */}
-      <section style={styles.aboutSection}>
-        <section id="about" style={{ ...styles.aboutSection, scrollMarginTop: "80px" }}></section>
+      <section id="about" style={{ ...styles.aboutSection, scrollMarginTop: "80px" }}>
         <h2 style={styles.aboutHeader}>About</h2>
         <h3 style={{ fontSize: "22px", color: "#64748b", marginBottom: "30px", fontWeight: "500" }}>
           Built by a student, for students.
         </h3>
         
-        <div 
-        
-        style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
-  <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
-    "Day Zero was built from lived experience.<br/>
-    Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the early days of
-    relocation — what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.<br/>
-    Day Zero exists to bridge that very gap.<br/>
-    Our mission is to ensure that every student arrives not just prepared, but confident, supported, and at ease from
-    day one — transforming what is often an overwhelming transition into a seamless beginning."
-  </p>
-
+        <div style={{ maxWidth: "750px", display: "flex", flexDirection: "column", alignItems: "center", margin: "0 auto" }}>
+          <p style={{ fontSize: "18px", color: "#4b5563", lineHeight: "1.8", marginBottom: "15px", fontStyle: "italic" }}>
+            "Day Zero was built from lived experience.<br/>
+            Having moved to Germany as an international student, I encountered firsthand the uncertainty and friction that define the early days of
+            relocation — what to carry, how to navigate unfamiliar systems, and how to find a sense of comfort in a completely new environment.<br/>
+            Day Zero exists to bridge that very gap.<br/>
+            Our mission is to ensure that every student arrives not just prepared, but confident, supported, and at ease from
+            day one — transforming what is often an overwhelming transition into a seamless beginning."
+          </p>
           
           <h4 style={{ fontSize: "20px", color: "#1e293b", fontWeight: "700", marginBottom: "40px" }}>
             ~ Gayatrree Paatil
           </h4>
           
+          {/* CONTACT SECTION - id="contact" for the Navbar link */}
           <div id="contact" style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: "15px", scrollMarginTop: "100px" }}>
-        
             <a 
               href="mailto:gayatrreepaatil@gmail.com" 
               style={{ ...styles.contactButton, backgroundColor: "#f1f5f9", color: "#1e293b" }}
