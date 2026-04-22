@@ -52,7 +52,7 @@ function CookingPage() {
       <div style={{ padding: "40px", textAlign: "center", maxWidth: "1200px", margin: "0 auto" }}>
         <h1 style={{ fontSize: "36px", color: "#1e293b", fontWeight: "800" }}>🍳 Survival Cooking Workshop</h1>
         <p style={{ fontSize: "18px", color: "#64748b", marginBottom: "30px" }}>
-          Don't survive on cup noodles. Master the basics in 7 days.
+          Don't survive on cup noodles. Master the basics in just 3 days.
         </p>
         
         {/* Toggle between Button and Calendar */}
@@ -61,7 +61,7 @@ function CookingPage() {
             onClick={() => setShowCalendar(true)} 
             style={bookingBtn}
           >
-            📅 Book 7-Day Workshop
+            📅 Book your 3-Day Workshop
           </button>
         ) : (
           <div style={{ marginTop: "20px", background: "#fff", padding: "20px", borderRadius: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.05)" }}>
